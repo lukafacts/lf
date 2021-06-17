@@ -3,6 +3,8 @@ var ticking = false;
 var isFirefox = (/Firefox/i.test(navigator.userAgent));
 var isIe = (/MSIE/i.test(navigator.userAgent)) || (/Trident.*rv\:11\./i.test(navigator.userAgent));
 var scrollSensitivitySetting = 30; //Increase/decrease this number to change sensitivity to trackpad gestures (up = less sensitive; down = more sensitive) 
+var touchSensitivitySetting = 30; //Increase/decrease this number to change sensitivity to trackpad gestures (up = less sensitive; down = more sensitive) 
+
 var slideDurationSetting = 600; //Amount of time for which slide is "locked"
 var currentSlideNumber = 0;
 var totalSlideNumber = $(".background").length;
@@ -55,7 +57,57 @@ function slideDurationTimeout(slideDuration) {
 var mousewheelEvent = isFirefox ? "DOMMouseScroll" : "wheel";
 window.addEventListener(mousewheelEvent, _.throttle(parallaxScroll, 60), false);
 
-$(document).on('touchmove', function() { $(document).trigger('wheel');$(document).trigger('DOMMouseScroll');alert("test");});
+// ------------- TOUCH COMPATABILITY -------------//
+
+document.body.addEventListener('touchmove', touchmove);
+document.body.addEventListener('touchstart', touchstart);
+
+
+var startX, startY;
+
+function touchstart(e)
+{
+	startX = e.touches[0].clientX;
+	startY = e.touches[0].clientY;
+}
+
+function touchmove(e)
+{
+	var deltaX = e.touches[0].clientX - startX,
+	deltaY = e.touches[0].clientY - startY;
+	
+	
+	console.log('Delta x,y',deltaX, deltaY);
+	
+	
+	if (ticking != true) {
+    if (deltaY <= -touchSensitivitySetting) {
+      //Down scroll
+      ticking = true;
+      if (currentSlideNumber !== totalSlideNumber - 1) {
+        currentSlideNumber++;
+        nextItem();
+          checkSlide(currentSlideNumber);
+      }
+      slideDurationTimeout(slideDurationSetting);
+    }
+    if (delta >= touchSensitivitySetting) {
+      //Up scroll
+      ticking = true;
+      if (currentSlideNumber !== 0) {
+        currentSlideNumber--;
+      }
+      previousItem();
+          checkSlide(currentSlideNumber);
+      slideDurationTimeout(slideDurationSetting);
+    }
+  }
+
+}
+
+
+
+
 
 // ------------- SLIDE MOTION ------------- //
 function nextItem() {
