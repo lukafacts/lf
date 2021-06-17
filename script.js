@@ -5,7 +5,7 @@ var isIe = (/MSIE/i.test(navigator.userAgent)) || (/Trident.*rv\:11\./i.test(nav
 var scrollSensitivitySetting = 30; //Increase/decrease this number to change sensitivity to trackpad gestures (up = less sensitive; down = more sensitive) 
 var touchSensitivitySetting = 100; //Increase/decrease this number to change sensitivity to trackpad gestures (up = less sensitive; down = more sensitive) 
 
-var mobToggle = false;
+var hozMode = false;
 
 var slideDurationSetting = 600; //Amount of time for which slide is "locked"
 var currentSlideNumber = 0;
@@ -75,25 +75,15 @@ window.addEventListener(mousewheelEvent, _.throttle(parallaxScroll, 60), false);
 document.body.addEventListener('touchmove', touchmove);
 document.body.addEventListener('touchstart', touchstart);
 
-if(isMobile() & !(window.innerHeight > window.innerWidth))
+if(isMobile() && (window.innerHeight > window.innerWidth))
 {
 	
-	mobToggle = !mobToggle;
+	hozMode = false;
   $(".cds").toggleClass("mobCards");
-
   $(".cds").toggleClass("cards");
-  
-  
-		
   $(".off").toggleClass("offset");
-
-  $(".off").toggleClass("mobOffset");
-  
-  
-  
-		
+  $(".off").toggleClass("mobOffset");	
   $(".sdt").toggleClass("sdTitle");
-
   $(".sdt").toggleClass("mobSdTitle");
   
   
@@ -106,7 +96,47 @@ window.addEventListener("resize", displayWindowSize);
 
 function displayWindowSize()
 {
-	alert("test");
+	if(!isMobile())
+	{
+		return;
+	}
+	
+	if(window.innerHeight < window.innerWidth){
+		if(hozMode)
+		{
+			return;
+		}
+		else
+		{
+			hozMode = true;
+			$(".cds").toggleClass("mobCards");
+			$(".cds").toggleClass("cards");
+			$(".off").toggleClass("offset");
+			$(".off").toggleClass("mobOffset");	
+			$(".sdt").toggleClass("sdTitle");
+			$(".sdt").toggleClass("mobSdTitle");
+			return;
+		}
+	}
+	
+		
+	if(window.innerHeight < window.innerWidth){
+		if(!hozMode)
+		{
+			return;
+		}
+		else
+		{
+			hozMode = false;
+			$(".cds").toggleClass("mobCards");
+			$(".cds").toggleClass("cards");
+			$(".off").toggleClass("offset");
+			$(".off").toggleClass("mobOffset");	
+			$(".sdt").toggleClass("sdTitle");
+			$(".sdt").toggleClass("mobSdTitle");
+			return;
+		}
+	}
 }
 
 
