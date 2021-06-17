@@ -85,6 +85,30 @@ background-color:black;
 	
 
 }
+	
+.mobSdTitle {
+	font-size: 10vw;
+	padding: 20px;
+}
+
+.mobOffset{
+	position:relative;
+	display: grid;
+    grid-template-columns: 2fr 1fr;
+	grid-template-rows: 0.2fr 1fr;
+    grid-template-areas: 
+					"slideDescription slideDescription"
+					"cards cards";
+	top:16%;
+}
+
+
+.mobCards {
+	grid-area: cards;
+	width:350px;
+	margin:auto;
+}
+
 
 .card_container {
 	position: relative;
