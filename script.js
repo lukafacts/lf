@@ -91,7 +91,7 @@ function touchmove(e)
       }
       slideDurationTimeout(slideDurationSetting);
     }
-    if (delta >= touchSensitivitySetting) {
+    if (deltaY >= touchSensitivitySetting) {
       //Up scroll
       ticking = true;
       if (currentSlideNumber !== 0) {
