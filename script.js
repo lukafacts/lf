@@ -5,6 +5,8 @@ var isIe = (/MSIE/i.test(navigator.userAgent)) || (/Trident.*rv\:11\./i.test(nav
 var scrollSensitivitySetting = 30; //Increase/decrease this number to change sensitivity to trackpad gestures (up = less sensitive; down = more sensitive) 
 var touchSensitivitySetting = 100; //Increase/decrease this number to change sensitivity to trackpad gestures (up = less sensitive; down = more sensitive) 
 
+var mobToggle = false;
+
 var slideDurationSetting = 600; //Amount of time for which slide is "locked"
 var currentSlideNumber = 0;
 var totalSlideNumber = $(".background").length;
@@ -73,9 +75,10 @@ window.addEventListener(mousewheelEvent, _.throttle(parallaxScroll, 60), false);
 document.body.addEventListener('touchmove', touchmove);
 document.body.addEventListener('touchstart', touchstart);
 
-if(!isMobile())
+if(isMobile() & !(window.innerHeight > window.innerWidth))
 {
-		
+	
+	mobToggle = !mobToggle;
   $(".cds").toggleClass("mobCards");
 
   $(".cds").toggleClass("cards");
@@ -95,6 +98,17 @@ if(!isMobile())
   
   
 }
+
+
+
+// Attaching the event listener function to window's resize event
+window.addEventListener("resize", displayWindowSize);
+
+function displayWindowSize()
+{
+	alert("test");
+}
+
 
 
 var startX, startY;
