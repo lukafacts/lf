@@ -102,7 +102,7 @@ function displayWindowSize()
 	}
 	
 	if(window.innerHeight < window.innerWidth){
-		if(hozMode)
+		if(!hozMode)
 		{
 			return;
 		}
@@ -120,8 +120,8 @@ function displayWindowSize()
 	}
 	
 		
-	if(window.innerHeight < window.innerWidth){
-		if(!hozMode)
+	if(window.innerHeight > window.innerWidth){
+		if(hozMode)
 		{
 			return;
 		}
