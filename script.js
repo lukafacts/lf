@@ -118,39 +118,6 @@ function touchstart(e)
 	startY = e.touches[0].clientY;
 }
 
-function touchmove(e)
-{
-	var deltaX = e.touches[0].clientX - startX,
-	deltaY = e.touches[0].clientY - startY;
-	
-	
-	
-	if (ticking != true) {
-    if (deltaY <= -touchSensitivitySetting) {
-      //Down scroll
-      ticking = true;
-      if (currentSlideNumber !== totalSlideNumber - 1) {
-        currentSlideNumber++;
-        nextItem();
-          checkSlide(currentSlideNumber);
-      }
-      slideDurationTimeout(slideDurationSetting);
-    }
-    if (deltaY >= touchSensitivitySetting) {
-      //Up scroll
-      ticking = true;
-      if (currentSlideNumber !== 0) {
-        currentSlideNumber--;
-      }
-      previousItem();
-          checkSlide(currentSlideNumber);
-      slideDurationTimeout(slideDurationSetting);
-    }
-  }
-
-}
-
-
 
 
 
