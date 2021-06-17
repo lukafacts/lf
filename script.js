@@ -73,42 +73,6 @@ window.addEventListener(mousewheelEvent, _.throttle(parallaxScroll, 60), false);
 document.body.addEventListener('touchmove', touchmove);
 document.body.addEventListener('touchstart', touchstart);
 
-if(isMobile())
-{
-	alert("mobile");
-
-	var elems = document.querySelectorAll(".sdTitle");
-	var elemCount = elems.length;
-	
-	for (var i = 0; i < elemCount; i++) {
-	  elems[i].addClass("mobSdTitle");
-	  elems[i].removeClass("sdTitle");
-	}
-	
-	
-	var elems = document.querySelectorAll(".offset");
-	var elemCount = elems.length;
-	
-	for (var i = 0; i < elemCount; i++) {
-	  elems[i].addClass("mobOffset");
-	  elems[i].removeClass("offset");
-	}
-	
-	
-	
-	var elems = document.querySelectorAll(".cards");
-	var elemCount = elems.length;
-	
-	for (var i = 0; i < elemCount; i++) {
-	  elems[i].addClass("mobCards");
-	  elems[i].removeClass("cards");
-	}
-	
-	
-	
-}else{
-alert("not mobile");
-}
 
 var startX, startY;
 
