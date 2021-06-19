@@ -40,7 +40,7 @@ html, body {
 }
 
 .background:nth-child(2) {
-  background-color: black;
+	background: #eeeee4;
 }
 
 .background:nth-child(3) {

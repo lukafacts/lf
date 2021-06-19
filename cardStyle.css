@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans&display=swap');
 .slideOne {
-	background: #eeeee4;
 	position: relative;
 	top:15vh;
-	height: 115vh;
 	width: 100%;
 }
 
@@ -35,7 +33,7 @@ background-color:black;
 	z-index:10;
 	grid-area: slideDescription;
 	font-family: Montserrat;
-	color:white;
+	color:black;
 	mix-blend-mode:difference;
 	text-align:center;
 	width:100%;
@@ -51,12 +49,14 @@ background-color:black;
 .offset{
 	position:relative;
 	display: grid;
+
+  top: 50vh;
+  transform: translateY(-100%);
 	grid-template-columns: 1fr 1.4fr;
 	grid-template-rows: 0.2fr 1fr;
 	grid-template-areas:
 						"slideDescription cards"
 						"slideDescription cards";
-	top:30vh;
 }
 
 .card_container {
@@ -247,7 +247,10 @@ background-color:black;
 	    grid-template-areas:
 						"slideDescription slideDescription"
 						"cards cards";
-		top:16%;
+
+
+						  top: 50vh;
+						  transform: translateY(-60%);
 
 	}
 
