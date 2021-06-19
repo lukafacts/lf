@@ -37,6 +37,7 @@ background-color:black;
 	mix-blend-mode:difference;
 	text-align:center;
 	margin: auto;
+        font-size: 3vw;
 	transform: translateY(-5vw);
 }
 
