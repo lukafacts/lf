@@ -32,12 +32,12 @@ html, body {
 .NR
 {
   position:fixed;
-  width:10vh;
-  height:10vh;
-  top:85vh;
+  width:6vw;
+  height:6vw;
+  bottom:5vh;
   left:5vh;
   mix-blend-mode: difference;
-  z-index: 100;
+  z-index: 10;
 }
 
 .background:first-child {
