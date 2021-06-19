@@ -56,7 +56,7 @@ background-color:black;
 	grid-template-areas:
 						"slideDescription cards"
 						"slideDescription cards";
-	top:30%;
+	top:10%;
 }
 
 .card_container {
