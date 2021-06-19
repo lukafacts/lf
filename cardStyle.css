@@ -3,6 +3,7 @@
 	position: relative;
 	top:15vh;
 	width: 100%;
+
 }
 
 
@@ -36,46 +37,36 @@ background-color:black;
 	color:black;
 	mix-blend-mode:difference;
 	text-align:center;
-	width:100%;
-	margin-bottom:30px;
+	margin: auto;
+	transform: translateY(-10vh);
 }
 
 .cards {
-	width:100%;
+	position:relative;
 	grid-area: cards;
-	transform:translateX(10%);
+
+}
+
+.cardContainer{
+position: relative;
 }
 
 .offset{
 	position:relative;
 	display: grid;
+	z-index:1;
+
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas:
+						"slideDescription cards";
+
 
   top: 50vh;
-  transform: translateY(-100%);
-	grid-template-columns: 1fr 1.4fr;
-	grid-template-rows: 0.2fr 1fr;
-	grid-template-areas:
-						"slideDescription cards"
-						"slideDescription cards";
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
-.card_container {
-	position: relative;
-}
-
-.card {
-	width: 70%;
-	min-width:300px;
-	position:relative;
-	margin:auto;
-	background: rgba(255, 255, 255, 0.8);
-	box-shadow: 0 8px 32px 0 rgba(31, 38, 35, 0.37);
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
-	border-radius: 10px;
-	text-align: center;
-	padding: 10px;
-}
 
 
 
@@ -90,7 +81,6 @@ background-color:black;
 	bottom: 0;
 	position: absolute;
 	content: "\00d7";
-	/* This will render the 'X' */
 	font-size: 30px;
 }
 
@@ -104,21 +94,19 @@ background-color:black;
 }
 
 
-/*Card offset*/
-
 .card:nth-child(1) {
-	top: 40px;
-	left: 40px;
+	top: -5vh;
+	left: 10vw;
 }
 
 .card:nth-child(2) {
-	top: 20px;
-	left: 20px;
+	top: 0vh;
+	left: 5vw;
 }
 
 .card:nth-child(3) {
-	top: 0px;
-	left: 0px;
+	top: 5vh;
+	left: 0vw;
 }
 
 
@@ -176,10 +164,10 @@ background-color:black;
 }
 
 .at {
-	position: absolute;
 	animation: animatetop 1.5s;
 	animation-fill-mode: both;
 }
+
 
 @keyframes animatetop {
 	from {
@@ -231,6 +219,23 @@ background-color:black;
 
 
 
+.card {
+	width: 70%;
+	min-width:400px;
+	position: absolute;
+
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 35, 0.37);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border-radius: 10px;
+	text-align: center;
+	padding: 10px;
+}
+
+
+
+
 @media (orientation: portrait) {
 
 
@@ -250,7 +255,8 @@ background-color:black;
 
 
 						  top: 50vh;
-						  transform: translateY(-60%);
+						  -webkit-transform: translateY(-50%);
+						  transform: translateY(-50%);
 
 	}
 
@@ -262,5 +268,20 @@ background-color:black;
 		font-size: max(min(2.5vw, 18px), 11px);
 		margin:0px 30px 8px 10px;
 	}
+	.cards{
+		left:10%;
+		width: 100%;
+	}
+	.card{
+		width: 70%;
+		min-width:400px;
+		position: absolute;
 
+		background: rgba(255, 255, 255, 0.8);
+		box-shadow: 0 8px 32px 0 rgba(31, 38, 35, 0.37);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border-radius: 10px;
+		text-align: center;
+	}
 }
