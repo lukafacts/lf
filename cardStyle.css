@@ -35,7 +35,7 @@ background-color:black;
 	margin:10px;
 	grid-area: slideDescription;
 	font-family: Montserrat;
-	color:white;
+	color:#eeeee4;
 	mix-blend-mode:difference;
 	text-align:center;
 }
@@ -246,7 +246,7 @@ background-color:black;
 	position: absolute;
 	top: 0;
 	left: 0;
-	fill: white;
+	fill: #1e81b0;
 	width: 50vmax;
 	animation: move 10s ease-in-out infinite;
 	transform-origin: 50% 50%;
