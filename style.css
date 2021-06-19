@@ -29,6 +29,16 @@ html, body {
   right: 0;
   bottom: 0;
 }
+.NR
+{
+  position:fixed;
+  width:10vh;
+  height:10vh;
+  top:85vh;
+  left:5vh;
+  mix-blend-mode: difference;
+  z-index: 100;
+}
 
 .background:first-child {
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
