@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans&display=swap');
 .slideOne {
-	background: blue;
+	background: #eeeee4;
 	position: relative;
 	top:15vh;
 	height: 115vh;
@@ -19,9 +19,10 @@ z-index:-1;
 }
 
 .sdTitle {
-	font-size: 5vw;
+	font-size: 6vw;
 	padding: 20px;
 	font-weight:bold;
+	position:relative;
 }
 
 .smoked-glass{
@@ -32,88 +33,50 @@ background-color:black;
 
 .slideDescription {
 	z-index:10;
-	margin:10px;
 	grid-area: slideDescription;
 	font-family: Montserrat;
-	color:#eeeee4;
+	color:white;
 	mix-blend-mode:difference;
 	text-align:center;
+	width:100%;
+	margin-bottom:30px;
 }
 
 .cards {
+	width:100%;
 	grid-area: cards;
-	width:400px;
+	transform:translateX(10%);
 }
 
 .offset{
 	position:relative;
 	display: grid;
-	grid-template-columns: 2fr 1fr;
+	grid-template-columns: 1fr 1.4fr;
 	grid-template-rows: 0.2fr 1fr;
-	grid-template-areas: 
+	grid-template-areas:
 						"slideDescription cards"
 						"slideDescription cards";
 	top:30%;
 }
 
-
-@media only screen and (max-width: 600px) {
-
-	
-	.sdTitle {
-		font-size: 10vw;
-		padding: 20px;
-	}
-	
-	.offset{
-		position:relative;
-		display: grid;
-	    grid-template-columns: 2fr 1fr;
-		grid-template-rows: 0.2fr 1fr;
-	    grid-template-areas: 
-						"slideDescription slideDescription"
-						"cards cards";
-		top:16%;
-	}
-	
-	
-	.cards {
-		grid-area: cards;
-		width:350px;
-		margin:auto;
-	}
-	
-
-}
-	
-.mobSdTitle {
-	font-size: 10vw;
-	padding: 20px;
-}
-
-.mobOffset{
-	position:relative;
-	display: grid;
-    grid-template-columns: 2fr 1fr;
-	grid-template-rows: 0.2fr 1fr;
-    grid-template-areas: 
-					"slideDescription slideDescription"
-					"cards cards";
-	top:16%;
-}
-
-
-.mobCards {
-	grid-area: cards;
-	width:350px;
-	margin:auto;
-}
-
-
 .card_container {
 	position: relative;
-	
 }
+
+.card {
+	width: 70%;
+	min-width:300px;
+	position:relative;
+	margin:auto;
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 35, 0.37);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border-radius: 10px;
+	text-align: center;
+	padding: 10px;
+}
+
 
 
 /*Card Element*/
@@ -138,18 +101,6 @@ background-color:black;
 	position: absolute;
 	opacity: 0.6;
 	text-shadow: -2px -2px 4px #55DDE0, -2px 2px 4px #55DDE0, 2px -2px 4px #55DDE0, 2px 2px 4px #55DDE0;
-}
-
-.card {
-	width: 300px;
-	opacity: 0;
-	background: rgba(255, 255, 255, 0.8);
-	box-shadow: 0 8px 32px 0 rgba(31, 38, 35, 0.37);
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
-	border-radius: 10px;
-	text-align: center;
-	padding: 10px;
 }
 
 
@@ -178,14 +129,16 @@ background-color:black;
 	grid-template-columns: 1fr 5fr;
 	grid-template-rows: 1fr 3fr 1fr;
 	gap: 0px 0px;
+	margin:0;
+	padding:0;
 	grid-template-areas: "title title" "icon description" "share share";
 }
 
 .title {
-	padding: 5px 0px 5px 0px;
+	padding: 5px 0px 0px 0px;
 	grid-area: title;
 	font-family: "Nanum Gothic", sans-serif;
-	font-size: 24px;
+	font-size: max(min(3.2vw, 24px), 22px);
 	text-align: center;
 }
 
@@ -201,9 +154,9 @@ background-color:black;
 	grid-area: description;
 	text-align: justify;
 	text-justify: inter-word;
-	padding: 5px;
 	font-family: 'Noto Sans', sans-serif;
-	font-size: 12px;
+	font-size: max(min(1.8vw, 18px), 11px);
+	margin:0px 30px 8px 10px;
 }
 
 .share {
@@ -246,13 +199,13 @@ background-color:black;
 	position: absolute;
 	top: 0;
 	left: 0;
-	fill: #1e81b0;
+	fill: #76b5c5;
 	width: 50vmax;
 	animation: move 10s ease-in-out infinite;
 	transform-origin: 50% 50%;
 	z-index:0;
 	height:85vh;
-	
+
 }
 
 @keyframes move {
@@ -274,4 +227,37 @@ background-color:black;
 	100% {
 		transform: scale(1) translate(10px, -30px);
 	}
+}
+
+
+
+@media (orientation: portrait) {
+
+
+	.sdTitle {
+		font-size: 10vw;
+		padding: 20px;
+	}
+
+	.offset{
+		position:relative;
+		display: grid;
+	    grid-template-columns: 2fr 1fr;
+		grid-template-rows: 0.2fr 1fr;
+	    grid-template-areas:
+						"slideDescription slideDescription"
+						"cards cards";
+		top:16%;
+
+	}
+
+	.description {
+		grid-area: description;
+		text-align: justify;
+		text-justify: inter-word;
+		font-family: 'Noto Sans', sans-serif;
+		font-size: max(min(2.5vw, 18px), 11px);
+		margin:0px 30px 8px 10px;
+	}
+
 }

@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
 html, body {
   overflow: hidden;
 }
-
 
 .background {
   background-size: cover;
@@ -11,13 +11,14 @@ html, body {
   overflow: hidden;
   will-change: transform;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   height: 130vh;
   position: fixed;
   width: 100%;
   transform: translateY(30vh);
   transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
 }
+
 .background:before {
   content: "";
   position: absolute;
@@ -28,16 +29,20 @@ html, body {
   right: 0;
   bottom: 0;
 }
+
 .background:first-child {
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   transform: translateY(-15vh);
 }
+
 .background:first-child .content-wrapper {
   transform: translateY(15vh);
 }
+
 .background:nth-child(2) {
   background-color: black;
 }
+
 .background:nth-child(3) {
   background-color: black;
 }
@@ -75,41 +80,47 @@ html, body {
   transform: translateY(40vh);
   will-change: transform;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
 }
+
 .content-title {
   font-size: 12vw;
   line-height: 1.4;
 }
 
-.content-subtitle{
+.content-subtitle {
   font-size: 3vw;
 }
-
 
 .background.up-scroll {
   transform: translate3d(0, -15vh, 0);
 }
+
 .background.up-scroll .content-wrapper {
   transform: translateY(15vh);
 }
-.background.up-scroll + .background {
+
+.background.up-scroll+.background {
   transform: translate3d(0, 30vh, 0);
 }
-.background.up-scroll + .background .content-wrapper {
+
+.background.up-scroll+.background .content-wrapper {
   transform: translateY(30vh);
 }
 
 .background.down-scroll {
   transform: translate3d(0, -130vh, 0);
 }
+
 .background.down-scroll .content-wrapper {
   transform: translateY(40vh);
 }
-.background.down-scroll + .background:not(.down-scroll) {
+
+.background.down-scroll+.background:not(.down-scroll) {
   transform: translate3d(0, -15vh, 0);
 }
-.background.down-scroll + .background:not(.down-scroll) .content-wrapper {
+
+.background.down-scroll+.background:not(.down-scroll) .content-wrapper {
   transform: translateY(15vh);
 }
